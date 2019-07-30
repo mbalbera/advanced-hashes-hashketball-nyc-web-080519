@@ -188,7 +188,7 @@ def big_shoe_rebounds
   num_rebounds
 end
 
-def cycle_players_for_players_for(name, statistic)
+def cycle_players_for(name, statistic)
   game_hash.each do |t, game_data|
     game_data[:players].each do |player|
       return player[statistic] if player[:player_name] == name
