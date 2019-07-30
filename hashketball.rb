@@ -126,7 +126,7 @@ def num_points_scored(player_name)
       data.each do |player|
       return player[:points]if player[:player_name] == player_name
      
-    end
+    
   end
 end
 
