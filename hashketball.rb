@@ -196,7 +196,7 @@ def iterate_through_players_for(name, statistic)
   end
 end
 
-def player_with_most_of(statistic)
+def most_of(statistic)
   player_name = nil
   amount_of_stat = 0
 
@@ -218,7 +218,7 @@ def player_with_most_of(statistic)
 end
 
 def most_points_scored
-  player_with_most_of(:points)
+  most_of(:points)
 end
 
 def winning_team
