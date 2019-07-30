@@ -103,7 +103,7 @@ end
 
 def num_points_scored(player_name)
   game_hash.each do |p, t|
-    team.each do |att, data|
+    t.each do |att, data|
       next unless att == :players
 
       data.each do |player|
@@ -114,40 +114,40 @@ def num_points_scored(player_name)
 end
 
 
-def shoe_size(sought_player_name)
-  game_hash.each do |_place, team|
-    team.each do |attribute, data|
-      next unless attribute == :players
+def shoe_size(name)
+  game_hash.each do |_place, t|
+    t.each do |att, data|
+      next unless att == :players
 
       data.each do |player|
-        return player[:shoe] if player[:player_name] == sought_player_name
+        return player[:shoe] if player[:player_name] == name
       end
     end
   end
 end
 
 def team_colors(team_name)
-  game_hash.each do |place, team|
-    return game_hash[place][:colors] if team[:team_name] == team_name
+  game_hash.each do |l, t|
+    return game_hash[l][:colors] if t[:team_name] == team_name
   end
 end
 
 def team_names
-  game_hash.collect do |_place, team|
-    team[:team_name]
+  game_hash.collect do |l, t|
+    t[:team_name]
   end
 end
 
 def player_numbers(team_name)
   nums = []
-  game_hash.each do |_place, team|
-    next unless team[:team_name] == team_name
+  game_hash.each do |l, t|
+    next unless t[:team_name] == team_name
 
-    team.each do |attribute, data|
-      next unless attribute == :players
+    t.each do |att, data|
+      next unless att == :players
 
-      data.each do |data|
-        nums << data[:number]
+      data.each do |d|
+        nums << d[:number]
       end
     end
   end
