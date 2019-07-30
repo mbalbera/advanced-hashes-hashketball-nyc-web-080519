@@ -124,7 +124,8 @@ def num_points_scored(player_name)
       next unless att == :players
       
       data.each do |player|
-      return player[:points].to_i if player[:player_name] == player_n
+      return player[:points]if player[:player_name] == player_name
+     
     end
   end
 end
