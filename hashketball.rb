@@ -189,7 +189,7 @@ def big_shoe_rebounds
 end
 
 def iterate_through_players_for(name, statistic)
-  game_hash.each do |_team, game_data|
+  game_hash.each do |t, game_data|
     game_data[:players].each do |player|
       return player[statistic] if player[:player_name] == name
     end
@@ -200,7 +200,7 @@ def most_of(statistic)
   player_name = nil
   amount_of_stat = 0
 
-  game_hash.each do |_team, game_data|
+  game_hash.each do |t, game_data|
     game_data[:players].each do |player|
       if player[statistic].is_a? String
         if player[statistic].length > amount_of_stat
@@ -225,7 +225,7 @@ def winning_team
 
   scores = { 'Brooklyn Nets' => 0, 'Charlotte Hornets' => 0 }
 
-  game_hash.each do |_team, game_data|
+  game_hash.each do |t, game_data|
     game_data[:players].each do |player|
       scores[game_data[:team_name]] += iterate_through_players_for(player[:player_name], :points)
     end
